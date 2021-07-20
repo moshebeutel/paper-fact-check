@@ -94,7 +94,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -268,6 +268,21 @@ Max pooling is applied to the output of the first, second and fifth layers. The 
 <h3 id="Data-Augmentation">
 <a class="anchor" href="#Data-Augmentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Augmentation<a class="anchor-link" href="#Data-Augmentation"> </a>
 </h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data augmentation is done in two forms:</p>
+<ul>
+<li>Transformations - Randomly take a 224X224 patch from our 256X256 images and their horisontal reflections. </li>
+<li>RGB Intensities - Preform PCA on the ImageNET training set and add multiples of the found princples. Specifically to each pixel the values 
+\begin{equation}
+[P_{1},P_{2},P_{3}][\alpha_{1}\lambda_{1},\alpha_{2}\lambda_{2},\alpha_{3}\lambda_{3}]^{T}
+\end{equation}
+are added to each pixel values where $P_{i}$ and $\alpha_{i}$ are the $i$-th eigenvalues and eigenvectors of 3X3 covariance matrix of RGB pixel values and $\alpha_{i}$ are drawn per image per use in train from a zero mean Gaussian distribution with standart deviation 0.1.</li>
+</ul>
 </div>
 </div>
 </div>
